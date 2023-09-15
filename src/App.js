@@ -9,7 +9,7 @@ function App() {
     // Создайте функцию для выполнения GET-запроса к серверу
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fakestoreapi.com/products');
+        const response = await axios.get('http://localhost:8001/api/test/');
         setData(response.data);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
@@ -26,6 +26,11 @@ function App() {
       <ul>
         {data.map((item) => (
           <li key={item._id}>{item.title}</li>
+        ))}
+      </ul>
+      <ul>
+        {data.map((item) => (
+          <li key={item._id}>{item.description}</li>
         ))}
       </ul>
     </div>
